@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Objects</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #999;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: royalblue;
+        }
+
+        #result {
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: left;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Student Details</h1>
+
+        <p>Click the buttons to learn about JavaScript objects.</p>
+
+        <button onclick="showDetails()">Show Details</button>
+        <button onclick="changeAge()">Update Age</button>
+        <button onclick="addCity()">Add City</button>
+        <button onclick="showGreeting()">Greet</button>
+
+        <div id="result">Student details will appear here.</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Creating an object
+        let student = {
+            name: "Ravi",
+            age: 10,
+            grade: 5
+        };
+
+        // Display object properties
+        function showDetails() {
+            document.getElementById("result").innerHTML =
+                "<b>Name:</b> " + student.name + "<br>" +
+                "<b>Age:</b> " + student.age + "<br>" +
+                "<b>Grade:</b> " + student.grade + "<br>" +
+                "<b>City:</b> " + (student.city || "Not added");
+        }
+
+        // Updating a property
+        function changeAge() {
+            student.age = 11;
+            showDetails();
+        }
+
+        // Adding a new property
+        function addCity() {
+            student.city = "Chennai";
+            showDetails();
+        }
+
+        // Adding a method to an object
+        student.greet = function () {
+            return "Hello! My name is " + this.name;
+        };
+
+        function showGreeting() {
+            document.getElementById("result").textContent =
+                student.greet();
+        }
+    </script>
+
+</body>
+
+</html>
